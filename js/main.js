@@ -18,12 +18,23 @@ const app = new Vue({
                 item: 'Milk',
                 isDone : false,
             },
+            {
+                item: 'Cheese',
+                isDone : false,
+            },
+        ],
+        priorityList : [
+            {
+                item: 'Milk',
+                isDone : false,
+            },
         ],
         newItem : '',
         isDone : false,
     },
     methods: {
-        addItem : function(itemToAdd){
+        addItem : function(listName, itemToAdd){
+            // se il valore == todoList aggiungi al elenco todoList
             newTask = {
                 item: '',
                 isDone : '',
@@ -31,14 +42,15 @@ const app = new Vue({
             newTask.item = itemToAdd;
             newTask.isDone = false;
             this.newItem = '';
-            this.listItems.push(newTask);
+            listName.push(newTask);
+            // else aggiungi al elenco priorities
         },
-        removeItem : function(itemToremove){
-            this.listItems.splice(itemToremove, 1);
+        removeItem : function(list,itemToremove){
+            list.splice(itemToremove, 1);
         },
 
-        isDoneChange : function(index){
-            this.listItems[index].isDone = !this.listItems[index].isDone;  
+        isDoneChange : function(list, index){
+            list[index].isDone = !list[index].isDone;  
         },
     }
 });

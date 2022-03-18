@@ -48,7 +48,11 @@
                                 <span class="input-group-text" id="basic-addon1"></span>
                             </div>
                             <input type="text" class="form-control" placeholder="Add Item" v-model="newItem" @keydown.enter="addItem(newItem)">
-                            <button class="btn btn-success ms-4 rounded-3" @click="addItem(newItem)">Add to List</button>
+                            <select class="form-select form-select-sm mx-3 text-center">
+                                <option value="todoList">To Do List</option>
+                                <option value="Priority">Priority</option>
+                            </select>
+                            <button class="btn btn-success ms-4 rounded-3" @click="addItem(listItems,newItem)">Add to List</button>
                         </div>
                         
                     </div>
@@ -59,17 +63,28 @@
 
                         <ul class="my-list-style">
                             <li class="d-flex p-2" v-for="(item, index) in listItems" :class="(item.isDone) ? 'line-though' : '' " >
-                                <i class="fa-solid fa-square my-styled-square" @click="isDoneChange(index)"></i>
+                                <i class="fa-solid fa-square my-styled-square" @click="isDoneChange(listItems, index)"></i>
                                 {{item.item}}
-                                <i class="fa-solid fa-minus ms-auto my-styled-square pe-4" @click="removeItem(index)"></i>
+                                <i class="fa-solid fa-minus ms-auto my-styled-square pe-4" @click="removeItem(listItems,index)"></i>
                             </li>
                         </ul>
                         
                         <!-- to do List-->
                     </div>
-                    <div class="col-5 my-border-color">
-                        Priorities
-                        <!-- to do preorities list bonus -->
+                    <div class="col-5 my-border-color px-0">
+                        <div class="list-title mb-4">
+                            <h4 class="text-center p-3">Priority List</h4>
+                        </div>
+
+                        <ul class="my-list-style">
+                            <li class="d-flex p-2" v-for="(item, index) in priorityList" :class="(item.isDone) ? 'line-though' : '' " >
+                                <i class="fa-solid fa-square my-styled-square" @click="isDoneChange(priorityList, index)"></i>
+                                {{item.item}}
+                                <i class="fa-solid fa-minus ms-auto my-styled-square pe-4" @click="removeItem(priorityList, index)"></i>
+                            </li>
+                        </ul>
+                        
+                        <!-- to do List-->
                     </div>
                 </div>
             </div>
