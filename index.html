@@ -31,7 +31,7 @@
     </head>
     <body>
         <header>
-            <div class="container p-5">
+            <div class="container w-75 p-5">
                 <div class="row text-center my-bg-color p-4 text-white">
                     <div class="col-12">
                         <h1 class="my-font-size">To - Do List</h1>
@@ -40,7 +40,7 @@
             </div>
         </header>
         <main id="app">
-            <div class="container p-5">
+            <div class="container w-75 p-5">
                 <div class="row justify-content-between">
                     <div class="col-12 mb-5">
                         <div class="input-group mb-3">
@@ -48,11 +48,11 @@
                                 <span class="input-group-text" id="basic-addon1"></span>
                             </div>
                             <input type="text" class="form-control" placeholder="Add Item" v-model="newItem" @keydown.enter="addItem(newItem)">
-                            <select class="form-select form-select-sm mx-3 text-center">
-                                <option value="todoList">To Do List</option>
-                                <option value="Priority">Priority</option>
+                            
+                            <select class="form-select form-select-sm mx-3 text-center rounded-4" v-model="selected">
+                                <option v-for="option in options" :value="option.value"> {{option.value}} </option>
                             </select>
-                            <button class="btn btn-success ms-4 rounded-3" @click="addItem(listItems,newItem)">Add to List</button>
+                            <button class="btn btn-success ms-4 rounded-3" @click="addItem(newItem)">Add to List</button>
                         </div>
                         
                     </div>
@@ -60,11 +60,10 @@
                         <div class="list-title mb-4">
                             <h4 class="text-center p-3">To Do List</h4>
                         </div>
-
                         <ul class="my-list-style">
-                            <li class="d-flex p-2" v-for="(item, index) in listItems" :class="(item.isDone) ? 'line-though' : '' " >
+                            <li class="d-flex p-2" v-for="(item, index) in listItems">
                                 <i class="fa-solid fa-square my-styled-square" @click="isDoneChange(listItems, index)"></i>
-                                {{item.item}}
+                                <p :class="(item.isDone) ? 'line-though' : '' ">{{item.item}}</p>
                                 <i class="fa-solid fa-minus ms-auto my-styled-square pe-4" @click="removeItem(listItems,index)"></i>
                             </li>
                         </ul>

@@ -25,24 +25,46 @@ const app = new Vue({
         ],
         priorityList : [
             {
-                item: 'Milk',
+                item: 'Send important email to Boss',
                 isDone : false,
             },
         ],
         newItem : '',
         isDone : false,
+        selected : [],
+        options : [
+            {
+                value: 'todoList',
+            },
+            {
+                value : 'priorities',
+            }
+            
+        ],
     },
     methods: {
-        addItem : function(listName, itemToAdd){
+        addItem : function(itemToAdd){
             // se il valore == todoList aggiungi al elenco todoList
-            newTask = {
-                item: '',
-                isDone : '',
-            };
-            newTask.item = itemToAdd;
-            newTask.isDone = false;
-            this.newItem = '';
-            listName.push(newTask);
+            if(this.selected == 'todoList'){
+                newTask = {
+                    item: '',
+                    isDone : '',
+                };
+                newTask.item = itemToAdd;
+                newTask.isDone = false;
+                this.newItem = '';
+                this.listItems.push(newTask);
+            } else {
+                newTask = {
+                    item: '',
+                    isDone : '',
+                };
+                newTask.item = itemToAdd;
+                newTask.isDone = false;
+                this.newItem = '';
+                this.priorityList.push(newTask);
+            }
+            
             // else aggiungi al elenco priorities
         },
         removeItem : function(list,itemToremove){
