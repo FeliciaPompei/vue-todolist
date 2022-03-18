@@ -1,0 +1,25 @@
+body{
+    font-family: "Montserrat", sans-serif;
+    background-color: #e7ded5;
+}
+header {
+    font-family:'Indie Flower', cursive;
+}
+.my-bg-color{
+    background-color: #628793;
+}
+.my-font-size{
+    font-size: 4rem;
+}
+
+.my-border-color{
+    height: 200px;
+    border: 3px solid #628793;
+}
+
+/* Main */
+
+.my-list-style{
+    list-style-type: square;
+    color: #628793;
+}
