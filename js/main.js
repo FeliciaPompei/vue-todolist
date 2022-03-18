@@ -13,21 +13,32 @@ Bonus:
 const app = new Vue({
     el:'#app',
     data: {
-        listItems : ['milk', 'cheese'],
+        listItems : [
+            {
+                item: 'Milk',
+                isDone : false,
+            },
+        ],
         newItem : '',
         isDone : false,
     },
     methods: {
         addItem : function(itemToAdd){
-            this.listItems.push(itemToAdd);
+            newTask = {
+                item: '',
+                isDone : '',
+            };
+            newTask.item = itemToAdd;
+            newTask.isDone = false;
             this.newItem = '';
+            this.listItems.push(newTask);
         },
         removeItem : function(itemToremove){
             this.listItems.splice(itemToremove, 1);
         },
-        isDoneChange : function(){
-            this.isDone = !this.isDone;
-            console.log('is done');
+
+        isDoneChange : function(index){
+            this.listItems[index].isDone = !this.listItems[index].isDone;  
         },
     }
 });
