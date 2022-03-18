@@ -52,7 +52,7 @@
                             <select class="form-select form-select-sm mx-3 text-center rounded-4" v-model="selected">
                                 <option v-for="option in options" :value="option.value"> {{option.value}} </option>
                             </select>
-                            <button class="btn btn-success ms-4 rounded-3" @click="addItem(newItem)">Add to List</button>
+                            <button class="btn btn-success ms-4 rounded-3" @click="optionSelected">Add to List</button>
                         </div>
                         
                     </div>

@@ -43,29 +43,22 @@ const app = new Vue({
         ],
     },
     methods: {
-        addItem : function(itemToAdd){
-            // se il valore == todoList aggiungi al elenco todoList
+        addItem : function(listName, itemToAdd){
+            newTask = {
+                item: '',
+                isDone : '',
+            };
+            newTask.item = itemToAdd;
+            newTask.isDone = false;
+            this.newItem = '';
+            listName.push(newTask);
+        },
+        optionSelected : function(){
             if(this.selected == 'todoList'){
-                newTask = {
-                    item: '',
-                    isDone : '',
-                };
-                newTask.item = itemToAdd;
-                newTask.isDone = false;
-                this.newItem = '';
-                this.listItems.push(newTask);
-            } else {
-                newTask = {
-                    item: '',
-                    isDone : '',
-                };
-                newTask.item = itemToAdd;
-                newTask.isDone = false;
-                this.newItem = '';
-                this.priorityList.push(newTask);
+                this.addItem(this.listItems, this.newItem)
+            }else{
+                this.addItem(this.priorityList, this.newItem)
             }
-            
-            // else aggiungi al elenco priorities
         },
         removeItem : function(list,itemToremove){
             list.splice(itemToremove, 1);
