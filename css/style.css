@@ -13,13 +13,45 @@ header {
 }
 
 .my-border-color{
-    height: 200px;
     border: 3px solid #628793;
 }
 
 /* Main */
+.list-title{
+    font-family:'Indie Flower', cursive;
+    background-color:#628793;
+    color:white;
+}
 
-.my-list-style{
-    list-style-type: square;
+.my-list-style li{
+    list-style-type: none;
+    font-size: 1.3rem;
+}
+
+
+.my-styled-square{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f0c8";
+    line-height: 30px;
     color: #628793;
+    margin-right: 0.4rem;
+}
+
+.input-group-text::after{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f46d";
+    line-height: 30px;
+    color: #628793;
+    margin-right: 0.4rem;
+}
+
+.my-styled-square:hover{
+    color:rgb(0, 0, 0);
+}
+
+
+.line-though{
+    text-decoration: line-through;
 }
