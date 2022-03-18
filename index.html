@@ -76,9 +76,9 @@
                         </div>
 
                         <ul class="my-list-style">
-                            <li class="d-flex p-2" v-for="(item, index) in priorityList" :class="(item.isDone) ? 'line-though' : '' " >
+                            <li class="d-flex p-2" v-for="(item, index) in priorityList">
                                 <i class="fa-solid fa-square my-styled-square" @click="isDoneChange(priorityList, index)"></i>
-                                {{item.item}}
+                                <p :class="(item.isDone) ? 'line-though' : '' ">{{item.item}}</p>
                                 <i class="fa-solid fa-minus ms-auto my-styled-square pe-4" @click="removeItem(priorityList, index)"></i>
                             </li>
                         </ul>
